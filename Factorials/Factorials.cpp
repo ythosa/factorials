@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #define ull unsigned long long
 
@@ -47,25 +48,21 @@ ull bisect_left(std::vector<ull> a, ull x, ull lo = 0, ull hi = -1) {
     ull mid;
     while (lo < hi) {
         mid = (lo + hi) / 2;
-        if (a[mid] < x) {
+        if (a[mid] < x)
             lo = mid + 1;
-        }
-        else {
+        else
             hi = mid;
-        }
     }
 
     return lo;
 }
 
 ull product(std::vector<ull> s, ull n, ull m) {
-    if (n > m) {
+    if (n > m)
         return 1;
-    }
     
-    if (n == m) {
+    if (n == m)
         return s[n];
-    }
 
     ull k = (n + m) / 2;
 
@@ -74,18 +71,34 @@ ull product(std::vector<ull> s, ull n, ull m) {
 
 ull swing(ull m, std::vector<ull> primes) {
 
-    if (m < 4) {
+    if (m < 4)
         return simple_values[m];
-    };
 
     ull s = bisect_left(primes, 1 + isqrt(m));
     ull d = bisect_left(primes, 1 + m / 3);
     ull e = bisect_left(primes, 1 + m / 2);
     ull g = bisect_left(primes, 1 + m);
 
+    std::vector<ull> factors = std::vector<ull>(primes.begin() + e, primes.begin() + g);
+    std::vector<ull> primes_snd = std::vector<ull>(primes.begin() + s, primes.end() + d);
+    std::copy_if(primes_snd.begin(), primes_snd.end(), std::back_inserter(factors), [&](ull x) { return (m / x) & 1 == 1; });
+
+    for (auto prime : std::vector<ull>(primes.begin() + 1, primes.begin() + s)) {
+        ull p, q = 1, m;
+        while (true) {
+            q /= prime;
+            if (q == 0)
+                break;
+            if (q & 1 == 1)
+                p *= prime;
+        }
+        if (p > 1)
+            factors.push_back(p);
+    }
+
+    return product(factors, 0, factors.size() - 1);
 }
 
 int main() {
     std::cout << "Hello World!\n";
 }
-
