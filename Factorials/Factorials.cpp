@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
 #define ull unsigned long long
 
@@ -97,6 +98,15 @@ ull swing(ull m, std::vector<ull> primes) {
     }
 
     return product(factors, 0, factors.size() - 1);
+}
+
+ull odd_factorial(ull n, std::vector<ull> primes) {
+    if (n < 2)
+        return 1;
+
+    pow(odd_factorial(n / 2, primes), 2);
+
+    return (pow(odd_factorial(n / 2, primes), 2)) * swing(n, primes);
 }
 
 int main() {
