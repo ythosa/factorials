@@ -13,7 +13,7 @@ T isqrt(T remainder)
     if (remainder < 0) // if type is unsigned this will be ignored = no runtime  
         return 0; // negative number ERROR  
 
-    type place = (T)1 << (sizeof(T) * 8 - 2); // calculated by precompiler = same runtime as: place = 0x40000000  
+    T place = (T)1 << (sizeof(T) * 8 - 2); // calculated by precompiler = same runtime as: place = 0x40000000  
     while (place > remainder)
         place /= 4; // optimized by complier as place >>= 2  
 
@@ -155,11 +155,25 @@ ull odd_factorial(ull n, std::vector<ull> primes) {
     return (pow(odd_factorial(n / 2, primes), 2)) * swing(n, primes);
 }
 
-//ull eval(ull n) {
-//    if (n < 10) 
-//        return product
-//}
+template <typename T>
+int bit_counter(T n) {
+    unsigned int count = 0;
+    for (; n; n <<= 1)
+        count += n & 1;
+
+    return count;
+}
+
+ull eval(ull n) {
+    if (n < 10)
+        return product(range(2, n + 1), 0, n - 2);
+
+    int bits = n - bit_counter(n);
+    std::vector<ull> primes = prime_range(2, n + 1);
+
+    return odd_factorial(n, primes) * pow(2, bits);
+}
 
 int main() {
-    std::cout << "Hello World!\n";
+    std::cout << eval(5);
 }
