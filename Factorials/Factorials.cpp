@@ -79,7 +79,7 @@ std::vector<ull> prime_range(ull f, ull l) {
     std::vector<ull> filtered_primes;
     for (int i = 0; i < primes.size(); ++i) {
         if (primes[i] >= f) {
-            filtered_primes.push_back(primes[0]);
+            filtered_primes.push_back(primes[i]);
         }
     }
 
@@ -127,11 +127,16 @@ ull swing(ull m, std::vector<ull> primes) {
     ull g = bisect_left(primes, 1 + m);
 
     std::vector<ull> factors = std::vector<ull>(primes.begin() + e, primes.begin() + g);
-    std::vector<ull> primes_snd = std::vector<ull>(primes.begin() + s, primes.end() + d);
-    std::copy_if(primes_snd.begin(), primes_snd.end(), std::back_inserter(factors), [&](ull x) { return (m / x) & 1 == 1; });
+    std::vector<ull> primes_snd;
+    if (s < d) {
+        primes_snd = std::vector<ull>(primes.begin() + s, primes.begin() + d);
+        std::copy_if(primes_snd.begin(), primes_snd.end(), std::back_inserter(factors), [&](ull x) { return (m / x) & 1 == 1; });
+    }
 
     for (auto prime : std::vector<ull>(primes.begin() + 1, primes.begin() + s)) {
-        ull p, q = 1, m;
+        ull p = 1;
+        ull q = m;
+
         while (true) {
             q /= prime;
             if (q == 0)
@@ -150,16 +155,14 @@ ull odd_factorial(ull n, std::vector<ull> primes) {
     if (n < 2)
         return 1;
 
-    pow(odd_factorial(n / 2, primes), 2);
-
     return (pow(odd_factorial(n / 2, primes), 2)) * swing(n, primes);
 }
 
 template <typename T>
 int bit_counter(T n) {
     unsigned int count = 0;
-    for (; n; n <<= 1)
-        count += n & 1;
+    for (; n; count++)
+        n &= (n - 1);
 
     return count;
 }
@@ -175,5 +178,5 @@ ull eval(ull n) {
 }
 
 int main() {
-    std::cout << eval(5);
+    std::cout << eval(11);
 }
