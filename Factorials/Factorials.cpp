@@ -58,6 +58,38 @@ ull bisect_left(std::vector<ull> a, ull x, ull lo = 0, ull hi = -1) {
     return lo;
 }
 
+
+std::vector<ull> prime_range(ull f, ull l) {
+    std::vector<int> sieve;
+    std::vector<ull> primes;
+
+    for (int i = 1; i < l + 1; ++i)
+        sieve.push_back(i);
+    
+    sieve[0] = 0;
+    for (int i = 2; i < l + 1; ++i) {
+        if (sieve[i - 1] != 0) {
+            primes.push_back(sieve[i - 1]);
+            for (int j = 2 * sieve[i - 1]; j < l + 1; j += sieve[i - 1]) {
+                sieve[j - 1] = 0;
+            }
+        }
+    }
+
+    std::vector<ull> filtered_primes;
+    for (int i = 0; i < primes.size(); ++i) {
+        if (primes[i] >= f) {
+            filtered_primes.push_back(primes[0]);
+        }
+    }
+
+    return filtered_primes;
+}
+
+std::vector<ull> range(ull f, ull l) {
+
+}
+
 ull product(std::vector<ull> s, ull n, ull m) {
     if (n > m)
         return 1;
@@ -108,6 +140,11 @@ ull odd_factorial(ull n, std::vector<ull> primes) {
 
     return (pow(odd_factorial(n / 2, primes), 2)) * swing(n, primes);
 }
+
+//ull eval(ull n) {
+//    if (n < 10) 
+//        return product
+//}
 
 int main() {
     std::cout << "Hello World!\n";
