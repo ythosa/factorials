@@ -1,4 +1,4 @@
-// factoriallib.cpp : Defines the factorial function for the static library.
+// factoriallib.cpp : Defines the prime swing factorial function for the static library.
 //
 
 #include "pch.h"
@@ -65,7 +65,6 @@ namespace FactorialPrimeSwing {
 
         return lo;
     }
-
 
     std::vector<ull> prime_range(ull f, ull l) {
         std::vector<int> sieve;

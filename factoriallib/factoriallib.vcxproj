@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a39fb504-26f7-4ff1-a173-a3e49d70681d}</ProjectGuid>
+    <ProjectGuid>{e8dc45cd-c267-49ae-8322-44f9d2e8d6f8}</ProjectGuid>
     <RootNamespace>factoriallib</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -151,7 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
+    <ClInclude Include="factoriallib.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>

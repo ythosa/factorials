@@ -1,5 +1,11 @@
+// factorials.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// compile with: factoriallib.lib
 
-int main() {
+#include <iostream>
+#include "factoriallib.h"
 
-    return 0;
+int main()
+{
+    std::cout << "Hello World!\n";
+    std::cout << "Factorial of 13 is " << FactorialPrimeSwing::count(13);
 }
