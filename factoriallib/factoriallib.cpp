@@ -14,6 +14,11 @@
 namespace FactorialPrimeSwing {
     ull const simple_values[] = { 1,1,1,3 };
 
+    /* isqrt() function is used to get the integer square root of the given 
+        * non - negative integer value n.This method returns the floor value
+        * of the exact square root of n or equivalently the greatest integer
+        * a such that a2 <= n 
+    */
     template <typename T>
     T isqrt(T remainder)
     {
@@ -38,7 +43,7 @@ namespace FactorialPrimeSwing {
         return root;
     }
 
-    /* Return the index where to insert item x in list a, assuming a is sorted.
+    /* bisect_left() fucntion returns the index where to insert item x in list a, assuming a is sorted.
         * The return value i is such that all e in a[:i] have e < x, and all e in
         * a[i:] have e >= x.  So if x already appears in the list, a.insert(i, x) will
         * insert just before the leftmost x already there.
@@ -66,6 +71,10 @@ namespace FactorialPrimeSwing {
         return lo;
     }
 
+    /* prime_range() function returns range of prime numbers.
+        * The function returns an array with the first
+        * element >= f and the last element <= l.
+    */
     std::vector<ull> prime_range(ull f, ull l) {
         std::vector<int> sieve;
         std::vector<ull> primes;
@@ -93,6 +102,8 @@ namespace FactorialPrimeSwing {
         return filtered_primes;
     }
 
+    /* print() functions prints vector of any type.
+    */
     template <typename T>
     void print(std::vector<T> const& input)
     {
@@ -101,6 +112,9 @@ namespace FactorialPrimeSwing {
         }
     }
 
+    /* range() function returns vector where 
+        * first element >= f and last element < l.
+    */
     std::vector<ull> range(ull f, ull l) {
         std::vector<ull> r;
         while (f < l) {
@@ -111,6 +125,9 @@ namespace FactorialPrimeSwing {
         return r;
     }
 
+    /* product() function calculates the product of prime factor lists
+        * using the recursive divide-and-conquer method.
+    */
     ull product(std::vector<ull> s, ull n, ull m) {
         if (n > m)
             return 1;
@@ -123,6 +140,9 @@ namespace FactorialPrimeSwing {
         return product(s, n, k) * product(s, k + 1, m);
     }
 
+    /* swing() is main function of prime swing 
+        * algorithm to counting factorial of n
+    */
     ull swing(ull m, std::vector<ull> primes) {
 
         if (m < 4)
@@ -148,7 +168,7 @@ namespace FactorialPrimeSwing {
                 q /= prime;
                 if (q == 0)
                     break;
-                if (q & 1 == 1)
+                if ((q & 1) == 1)
                     p *= prime;
             }
             if (p > 1)
@@ -158,6 +178,9 @@ namespace FactorialPrimeSwing {
         return product(factors, 0, factors.size() - 1);
     }
 
+    /* odd_factorial() function is 
+        * odding prime array 
+    */
     ull odd_factorial(ull n, std::vector<ull> primes) {
         if (n < 2)
             return 1;
@@ -165,6 +188,9 @@ namespace FactorialPrimeSwing {
         return (pow(odd_factorial(n / 2, primes), 2)) * swing(n, primes);
     }
 
+    /* bit_counter() function returns the number of 
+        * units in the binary representation of a number
+    */
     template <typename T>
     int bit_counter(T n) {
         unsigned int count = 0;
@@ -174,6 +200,8 @@ namespace FactorialPrimeSwing {
         return count;
     }
 
+    /* count() function returns factorial of n 
+    */
     ull count(ull n) {
         if (n == 0 || n == 1)
             return 1;
