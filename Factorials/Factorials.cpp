@@ -89,8 +89,8 @@ std::vector<ull> prime_range(ull f, ull l) {
 template <typename T>
 void print(std::vector<T> const& input)
 {
-    for (int i = 0; i < input.size(); i++) {
-        std::cout << input.at(i) << ' ';
+    for (auto const& i : input) {
+        std::cout << i << " ";
     }
 }
 
