@@ -86,8 +86,22 @@ std::vector<ull> prime_range(ull f, ull l) {
     return filtered_primes;
 }
 
-std::vector<ull> range(ull f, ull l) {
+template <typename T>
+void print(std::vector<T> const& input)
+{
+    for (int i = 0; i < input.size(); i++) {
+        std::cout << input.at(i) << ' ';
+    }
+}
 
+std::vector<ull> range(ull f, ull l) {
+    std::vector<ull> r;
+    while (f < l) {
+        r.push_back(f);
+        f++;
+    }
+
+    return r;
 }
 
 ull product(std::vector<ull> s, ull n, ull m) {
