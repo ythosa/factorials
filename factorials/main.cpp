@@ -7,5 +7,5 @@
 int main()
 {
     std::cout << "Hello World!\n";
-    std::cout << "Factorial of 13 is " << FactorialPrimeSwing::count(13);
+    std::cout << "Factorial of 19 is " << FactorialPrimeSwing::count(19);
 }
