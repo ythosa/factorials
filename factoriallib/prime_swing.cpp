@@ -2,109 +2,12 @@
 //
 
 #include "pch.h"
+#include "fmath.h"
+#include "prime_swing.h"
 
 #define ull unsigned long long
 
-namespace factoriallib {
-    /* Isqrt() function is used to get the integer square root of the given
-        * non - negative integer value n.This method returns the floor value
-        * of the exact square root of n or equivalently the greatest integer
-        * a such that a2 <= n
-    */
-    template <typename T>
-    T PrimeSwing::Isqrt(T remainder) {
-        if (remainder < 0) return 0;
-
-        T place = (T)1 << (sizeof(T) * 8 - 2); // calculated by precompiler = same runtime as: place = 0x40000000  
-        while (place > remainder)
-            place /= 4; // optimized by complier as place >>= 2  
-
-        T root = 0;
-        while (place)
-        {
-            if (remainder >= root + place)
-            {
-                remainder -= root + place;
-                root += place * 2;
-            }
-            root /= 2;
-            place /= 4;
-        }
-        return root;
-    }
-
-    /* BisectLeft() fucntion returns the index where to insert item x in list a, assuming a is sorted.
-        * The return value i is such that all e in a[:i] have e < x, and all e in
-        * a[i:] have e >= x.  So if x already appears in the list, a.insert(i, x) will
-        * insert just before the leftmost x already there.
-        * Optional args lo (default 0) and hi (default len(a)) bound the
-        * slice of a to be searched.
-    */
-    ull PrimeSwing::BisectLeft(std::vector<ull> a, ull x, ull lo, ull hi) {
-        if (lo < 0) {
-            throw "lo must be non-negative";
-        }
-
-        if (hi == -1) {
-            hi = a.size();
-        }
-
-        ull mid;
-        while (lo < hi) {
-            mid = (lo + hi) / 2;
-            if (a[mid] < x)
-                lo = mid + 1;
-            else
-                hi = mid;
-        }
-
-        return lo;
-    }
-
-    /* PrimeRange() function returns range of prime numbers.
-        * The function returns an array with the first
-        * element >= f and the last element <= l.
-    */
-    std::vector<ull> PrimeSwing::PrimeRange(ull f, ull l) {
-        std::vector<int> sieve;
-        std::vector<ull> primes;
-
-        for (int i = 1; i < l + 1; ++i)
-            sieve.push_back(i);
-
-        sieve[0] = 0;
-        for (int i = 2; i < l + 1; ++i) {
-            if (sieve[i - 1] != 0) {
-                primes.push_back(sieve[i - 1]);
-                for (int j = 2 * sieve[i - 1]; j < l + 1; j += sieve[i - 1]) {
-                    sieve[j - 1] = 0;
-                }
-            }
-        }
-
-        std::vector<ull> filtered_primes;
-        for (unsigned int i = 0; i < primes.size(); ++i) {
-            if (primes[i] >= f) {
-                filtered_primes.push_back(primes[i]);
-            }
-        }
-
-        return filtered_primes;
-    }
-
-    /* Range() function returns vector where
-        * first element >= f and last element < l.
-    */
-    std::vector<ull> PrimeSwing::Range(ull f, ull l) {
-        std::vector<ull> r;
-        while (f < l) {
-            r.push_back(f);
-            f++;
-        }
-
-        return r;
-    }
-
+namespace algo {
     /* Product() function calculates the product of prime factor lists
         * using the recursive divide-and-conquer method.
     */
@@ -120,7 +23,20 @@ namespace factoriallib {
         return Product(s, n, k) * Product(s, k + 1, m);
     }
 
-        
+    /* Product() function calculates the product of prime factor lists
+        * using the recursive divide-and-conquer method.
+    */
+    ull PrimeSwing::Product(ull sMin, ull n, ull m) {
+        if (n > m)
+            return 1;
+
+        if (n == m)
+            return sMin + n;
+
+        ull k = (n + m) / 2;
+
+        return Product(sMin, n, k) * Product(sMin, k + 1, m);
+    }
 
     /* Swing() is main function of prime swing
         * algorithm to counting factorial of n
@@ -130,10 +46,10 @@ namespace factoriallib {
         if (m < 4)
             return GetSimpleValue(m);
 
-        ull s = BisectLeft(primes, 1 + Isqrt(m));
-        ull d = BisectLeft(primes, 1 + m / 3);
-        ull e = BisectLeft(primes, 1 + m / 2);
-        ull g = BisectLeft(primes, 1 + m);
+        ull s = fmath::BisectLeft(primes, 1 + fmath::Isqrt(m));
+        ull d = fmath::BisectLeft(primes, 1 + m / 3);
+        ull e = fmath::BisectLeft(primes, 1 + m / 2);
+        ull g = fmath::BisectLeft(primes, 1 + m);
 
         std::vector<ull> factors = std::vector<ull>(primes.begin() + e, primes.begin() + g);
         std::vector<ull> primes_snd;
@@ -170,18 +86,6 @@ namespace factoriallib {
         return (pow(OddFactorial(n / 2, primes), 2)) * Swing(n, primes);
     }
 
-    /* BitCounter() function returns the number of
-        * units in the binary representation of a number
-    */
-    template <typename T>
-    int PrimeSwing::BitCounter(T n) {
-        unsigned int count = 0;
-        for (; n; count++)
-            n &= (n - 1);
-
-        return count;
-    }
-
     /* Count() function returns factorial of n
     */
     ull PrimeSwing::Count(ull n) {
@@ -189,10 +93,10 @@ namespace factoriallib {
             return 1;
 
         if (n < 10)
-            return Product(Range(2, n + 1), 0, n - 2);
+            return Product(2, 0, n - 2);
 
-        int bits = n - BitCounter(n);
-        std::vector<ull> primes = PrimeRange(2, n + 1);
+        int bits = n - fmath::BitCounter(n);
+        std::vector<ull> primes = fmath::PrimeRange(2, n + 1);
 
         return OddFactorial(n, primes) * pow(2, bits);
     }

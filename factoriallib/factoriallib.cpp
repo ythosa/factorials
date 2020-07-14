@@ -6,13 +6,9 @@
 
 #define ull unsigned long long
 
-namespace factoriallib {
-    /* Print() function prints vector of any type.
-    */
-    template <typename T>
-    void Factorials::Print(std::vector<T> const& input) {
-        for (auto const& i : input) {
-            std::cout << i << " ";
-        }
+namespace algo {
+    ull IFactorial::Count(ull n) {
+        throw "algo::Factorial::Count(): this method must be defined in the inheritors. \
+            Factorial class is using to implement various factorial algorithms.";
     }
 }

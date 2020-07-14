@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\algorithm">
+      <UniqueIdentifier>{991f38da-b80d-41a1-8ab1-19920a7d9d07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{7eadd04a-83f3-4d7f-954f-d793f7d31105}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\math">
+      <UniqueIdentifier>{afc3796e-085b-4866-bae5-6cac4f0ace83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\algorithm">
+      <UniqueIdentifier>{91783f9e-45e9-482b-beb6-0655221cc8d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -22,7 +34,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="prime_swing.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="fmath.h">
+      <Filter>Header Files\math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -33,7 +48,13 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="prime_swing.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="ranges.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="algorithms.cpp">
+      <Filter>Source Files\math</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
