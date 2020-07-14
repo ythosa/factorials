@@ -7,5 +7,6 @@
 int main()
 {
     std::cout << "Hello World!\n";
-    std::cout << "Factorial of 19 is " << FactorialPrimeSwing::count(19);
+    //std::cout << "Factorial of 19 is " << factoriallib::PrimeSwing::Count(19);
+    std::cout << factoriallib::PrimeSwing::GetSimpleValue(1) << factoriallib::PrimeSwing::GetSimpleValue(2) << factoriallib::PrimeSwing::GetSimpleValue(3);
 }

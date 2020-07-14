@@ -1,9 +1,17 @@
 #pragma once
 
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
+#include "prime_swing.h"
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
 
 #define ull unsigned long long
 
-namespace FactorialPrimeSwing {
-	ull count(ull n);
+namespace factoriallib {
+	class Factorials {
+		template <typename T>
+		static void Print(std::vector<T> const& input);
+	};
 }

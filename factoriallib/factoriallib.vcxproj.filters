@@ -21,12 +21,18 @@
     <ClInclude Include="factoriallib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="prime_swing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="factoriallib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="prime_swing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

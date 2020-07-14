@@ -9,5 +9,6 @@
 
 // add headers that you want to pre-compile here
 #include "factoriallib.h"
+#include "prime_swing.h"
 
 #endif //PCH_H

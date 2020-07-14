@@ -1,6 +1,9 @@
+// factorials_test.cpp : Defines some tests for factorial functions.
+//
+
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "factoriallib.h"
+#include "prime_swing.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -18,7 +21,7 @@ namespace factorialstest
 			};
 
 			for (int i = 1; i < std::size(factorials); ++i) {
-				Assert::AreEqual(FactorialPrimeSwing::count(i), factorials[i]);
+				Assert::AreEqual(factoriallib::PrimeSwing::Count(i), factorials[i]);
 			}
 		}
 	};
