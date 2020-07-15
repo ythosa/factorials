@@ -1,15 +1,11 @@
 #include <iostream>
 
-#include "src/fmath.h"
+#include "falgo.h"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    std::cout << fmath::isqrt(10) << std::endl;
-
-    for (auto r : fmath::range(2, 10)) {
-        std::cout << r << std::endl;
-    }
+    std::cout << falgo::PrimeSwing::Count(10);
 
     return 0;
 }

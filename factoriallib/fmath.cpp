@@ -125,9 +125,9 @@ namespace fmath {
         return lo;
     }
 
-    /* BitCounter() function returns the number of
+    /* bit_counter() function returns the number of
      * units in the binary representation of a number. */
-    ull BitCounter(ull n) {
+    ull bit_counter(ull n) {
         ull count = 0;
         for (; n; count++)
             n &= (n - 1);

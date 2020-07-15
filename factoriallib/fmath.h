@@ -24,9 +24,9 @@ namespace fmath {
 
     ull isqrt(ull remainder);
 
-    ull bisect_left(std::vector<ull> a, ull x, ull lo, ull hi);
+    ull bisect_left(std::vector<ull> a, ull x, ull lo=0, ull hi=-1);
 
-    ull BitCounter(ull n);
+    ull bit_counter(ull n);
 }
 
 #endif //FACTORIALLIB_FMATH_H
