@@ -4,8 +4,8 @@
 
 #include <vector>
 #include <algorithm>
-#include "fmath.h"
-#include "falgo.h"
+#include "include/fmath.h"
+#include "include/falgo.h"
 
 namespace falgo {
     struct MethodMustBeInTheInheritors : public std::exception
