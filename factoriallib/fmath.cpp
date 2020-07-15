@@ -5,8 +5,10 @@
 #include <vector>
 #include <exception>
 #include <cstring>
+#include "fmath.h"
 
-#define ull unsigned long long
+
+#define ll long long
 
 namespace fmath {
     /* NegativeArgumentPassed is custom error type.
@@ -32,9 +34,9 @@ namespace fmath {
     /* prime_range() function returns range of prime numbers.
      * The function returns an array with the first
      * element >= f and the last element <= l. */
-    std::vector<ull> prime_range(ull f, ull l) {
+    std::vector<ll> prime_range(ll f, ll l) {
         std::vector<int> sieve;
-        std::vector<ull> primes;
+        std::vector<ll> primes;
 
         for (int i = 1; i < l + 1; ++i)
             sieve.push_back(i);
@@ -49,8 +51,8 @@ namespace fmath {
             }
         }
 
-        std::vector<ull> filtered_primes;
-        for (unsigned long long & prime : primes) {
+        std::vector<ll> filtered_primes;
+        for (auto & prime : primes) {
             if (prime >= f) {
                 filtered_primes.push_back(prime);
             }
@@ -61,8 +63,8 @@ namespace fmath {
 
     /* range() function returns vector where
      * first element >= f and last element < l. */
-    std::vector<ull> range(ull f, ull l) {
-        std::vector<ull> r;
+    std::vector<ll> range(ll f, ll l) {
+        std::vector<ll> r;
         while (f < l) {
             r.push_back(f);
             f++;
@@ -75,16 +77,16 @@ namespace fmath {
      * the given non - negative integer value n. This method returns
      * the floor value of the exact square root of n or equivalently
      * the greatest integer a such that a2 <= n. */
-    ull isqrt(ull remainder) {
+    ll isqrt(ll remainder) {
         if (remainder < 0) {
             throw NegativeArgumentPassed("remainder");
         }
 
-        ull place = (ull)1 << (sizeof(ull) * 8 - 2); // calculated by precompiler = same runtime as: place = 0x40000000
+        ll place = (ll)1 << (sizeof(ll) * 8 - 2); // calculated by precompiler = same runtime as: place = 0x40000000
         while (place > remainder)
             place /= 4; // optimized by compiler as place >>= 2
 
-        ull root = 0;
+        ll root = 0;
         while (place)
         {
             if (remainder >= root + place)
@@ -104,7 +106,7 @@ namespace fmath {
      * So if x already appears in the list, a.insert(i, x) will insert just
      * before the leftmost x already there. Optional args lo (default 0) and
      * hi (default len(a)) bound the slice of a to be searched. */
-    ull bisect_left(std::vector<ull> a, ull x, ull lo, ull hi) {
+    ll bisect_left(std::vector<ll> a, ll x, ll lo, ll hi) {
         if (lo < 0) {
             throw NegativeArgumentPassed("lo");
         }
@@ -113,7 +115,7 @@ namespace fmath {
             hi = a.size();
         }
 
-        ull mid;
+        ll mid;
         while (lo < hi) {
             mid = (lo + hi) / 2;
             if (a[mid] < x)
@@ -127,11 +129,26 @@ namespace fmath {
 
     /* bit_counter() function returns the number of
      * units in the binary representation of a number. */
-    ull bit_counter(ull n) {
-        ull count = 0;
+    ll bit_counter(ll n) {
+        ll count = 0;
         for (; n; count++)
             n &= (n - 1);
 
         return count;
+    }
+
+    ll pow(ll base, ll exp) {
+        ll result = 1;
+        for (;;)
+        {
+            if (exp & 1u)
+                result *= base;
+            exp >>= 1u;
+            if (!exp)
+                break;
+            base *= base;
+        }
+
+        return result;
     }
 }

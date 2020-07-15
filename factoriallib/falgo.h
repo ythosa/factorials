@@ -7,25 +7,25 @@
 
 #include <vector>
 
-#define ull unsigned long long
+#define ll long long
 
 namespace falgo {
     class IFactorial {
-        static ull Count(ull n);
+        static ll Count(ll n);
     };
 
     class PrimeSwing : public IFactorial {
     public:
-        static ull Product(std::vector<ull> s, ull n, ull m);
-        static ull Product(ull sMin, ull n, ull m);
+        static ll Product(std::vector<ll> s, ll n, ll m);
+        static ll Product(ll sMin, ll n, ll m);
 
-        static ull Swing(ull m, std::vector<ull> primes);
+        static ll Swing(ll m, std::vector<ll> primes);
 
-        static ull OddFactorial(ull n, std::vector<ull> primes);
+        static ll OddFactorial(ll n, const std::vector<ll>& primes);
 
-        static ull Count(ull n);
+        static ll Count(ll n);
     private:
-        static ull GetSimpleValue(ull i);
+        static ll GetSimpleValue(ll i);
     };
 }
 

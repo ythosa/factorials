@@ -8,25 +8,20 @@
 #include <exception>
 #include <vector>
 
-#define ull unsigned long long
+#define ll long long
 
 namespace fmath {
-    /* NegativeArgumentPassed is custom error type.
-     * Throwing when passed argument into function
-     * must be non negative. */
-    struct NegativeArgumentPassed : public std::exception {
-        const char* v{};
-    };
+    std::vector<ll> prime_range(ll f, ll l);
 
-    std::vector<ull> prime_range(ull f, ull l);
+    std::vector<ll> range(ll f, ll l);
 
-    std::vector<ull> range(ull f, ull l);
+    ll isqrt(ll remainder);
 
-    ull isqrt(ull remainder);
+    ll bisect_left(std::vector<ll> a, ll x, ll lo=0, ll hi=-1);
 
-    ull bisect_left(std::vector<ull> a, ull x, ull lo=0, ull hi=-1);
+    ll bit_counter(ll n);
 
-    ull bit_counter(ull n);
+    ll pow(ll base, ll exp);
 }
 
 #endif //FACTORIALLIB_FMATH_H
