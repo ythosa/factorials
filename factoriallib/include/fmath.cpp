@@ -5,8 +5,7 @@
 #include <vector>
 #include <exception>
 #include <cstring>
-#include "include/fmath.h"
-
+#include "fmath.h"
 
 #define ll long long
 
@@ -82,7 +81,7 @@ namespace fmath {
             throw NegativeArgumentPassed("remainder");
         }
 
-        ll place = (ll)1 << (sizeof(ll) * 8 - 2); // calculated by precompiler = same runtime as: place = 0x40000000
+        ll place = (unsigned ll)1 << (sizeof(ll) * 8 - 2); // calculated by precompiler = same runtime as: place = 0x40000000
         while (place > remainder)
             place /= 4; // optimized by compiler as place >>= 2
 
@@ -141,7 +140,7 @@ namespace fmath {
         ll result = 1;
         for (;;)
         {
-            if (exp & 1u)
+            if ((unsigned ll)exp & 1u)
                 result *= base;
             exp >>= 1u;
             if (!exp)

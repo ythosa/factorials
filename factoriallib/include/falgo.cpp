@@ -4,10 +4,13 @@
 
 #include <vector>
 #include <algorithm>
-#include "include/fmath.h"
-#include "include/falgo.h"
+#include "fmath.h"
+#include "falgo.h"
 
 namespace falgo {
+    /* MethodMustBeInTheInheritors is custom exception type that using
+     * if this method cannot be called directly, meaning this method
+     * must be overridden in the inheritors. */
     struct MethodMustBeInTheInheritors : public std::exception
     {
         [[nodiscard]] const char * what () const noexcept override
@@ -17,6 +20,7 @@ namespace falgo {
         }
     };
 
+    /* Count() function for any factorial counting algorithm. */
     ll IFactorial::Count(ll) {
         throw MethodMustBeInTheInheritors();
     }
