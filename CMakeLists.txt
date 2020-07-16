@@ -12,3 +12,5 @@ add_subdirectory(factoriallib)
 target_link_libraries(factorials_run factoriallib_lib)
 
 add_subdirectory(factoriallib_tests)
+
+add_subdirectory(factoriallib_benchmarks)
