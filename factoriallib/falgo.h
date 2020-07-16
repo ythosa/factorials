@@ -28,6 +28,12 @@ namespace falgo {
     public:
         static ll Count(ll n);
     };
+
+    /* SimpleWhile is class for simple recursion algorithm */
+    class SimpleWhile : public IFactorial {
+    public:
+        static ll Count(ll n);
+    };
 }
 
 #endif //FACTORIALLIB_FALGO_H

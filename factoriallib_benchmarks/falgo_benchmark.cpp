@@ -17,9 +17,18 @@ static void BM_SimpleRecursion(benchmark::State& state) {
     }
 }
 
+static void BM_SimpleWhile(benchmark::State& state) {
+    for (auto _ : state) {
+        for (long long i = 0; i < 21; i++) {
+            falgo::SimpleWhile::Count(i);
+        }
+    }
+}
+
 // Register the function as a benchmark
 BENCHMARK(BM_PrimeSwing);
 BENCHMARK(BM_SimpleRecursion);
+BENCHMARK(BM_SimpleWhile);
 
 // Run the benchmark
 BENCHMARK_MAIN();

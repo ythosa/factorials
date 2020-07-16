@@ -16,6 +16,9 @@ namespace falgo {
         }
     };
 
+
+    /* --- Prime Swing --- */
+
     /* Count() function for any factorial counting algorithm. */
     ll IFactorial::Count(ll) {
         throw MethodMustBeInTheInheritors();
@@ -116,9 +119,29 @@ namespace falgo {
         return (ll)1 * ((i == 0) || (i == 1) || (i == 2)) + (ll)3 * (i == 3);
     }
 
+
+    /* --- Simple Recursion --- */
+
     /* Count() function returns factorial of n. */
     ll SimpleRecursion::Count(ll n) {
         if (n == 0) return 1;
         return n * SimpleRecursion::Count(n - 1);
     }
+
+
+    /* --- Simple While --- */
+
+    /* Count() function returns factorial of n. */
+    ll SimpleWhile::Count(ll n) {
+        if (n == 0) return 1;
+
+        ll res = n;
+        while (n > 1) {
+            res *= --n;
+        }
+
+        return res;
+    }
+
+
 }

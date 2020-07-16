@@ -18,3 +18,9 @@ TEST(FactorialTest, SimpleRecursionValuesChecking) {
         EXPECT_EQ(factorials[i], falgo::SimpleRecursion::Count(i));
     }
 }
+
+TEST(FactorialTest, SimpleWhileValuesChecking) {
+    for (long long i = 0; i < sizeof(factorials)/sizeof(*factorials); i++) {
+        EXPECT_EQ(factorials[i], falgo::SimpleWhile::Count(i));
+    }
+}
