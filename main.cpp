@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "fmath.h"
 #include "falgo.h"
+#include "fmath.h"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
