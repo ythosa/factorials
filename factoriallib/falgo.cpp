@@ -6,19 +6,6 @@
 #include "falgo.h"
 
 namespace falgo {
-    /* MethodMustBeInTheInheritors is custom exception type that using
-     * if this method cannot be called directly, meaning this method
-     * must be overridden in the inheritors. */
-    struct MethodMustBeInTheInheritors : public std::exception
-    {
-        [[nodiscard]] const char * what () const noexcept override
-        {
-            return "falgo::Factorial::Count(): this method must be defined in the inheritors."
-                   "Factorial class is using to implement various factorial algorithms.";
-        }
-    };
-
-
     /* --- Prime Swing --- */
 
     /* Count() function for any factorial counting algorithm. */

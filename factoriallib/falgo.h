@@ -10,6 +10,18 @@ namespace falgo {
         static ll Count(ll n);
     };
 
+    /* MethodMustBeInTheInheritors is custom exception type that using
+     * if this method cannot be called directly, meaning this method
+     * must be overridden in the inheritors. */
+    struct MethodMustBeInTheInheritors : public std::exception
+    {
+        [[nodiscard]] const char * what () const noexcept override
+        {
+            return "falgo::Factorial::Count(): this method must be defined in the inheritors."
+                   "Factorial class is using to implement various factorial algorithms.";
+        }
+    };
+
     /* PrimeSwing is class for prime swing algorithm */
     class PrimeSwing : public IFactorial {
     public:
@@ -61,13 +73,13 @@ namespace falgo {
         static ll Count(ll n);
     };
 
-    /* FactNaive is class for algorithm which use analog factorisation algorithm */
+    /* FactNaive is class for algorithm which use faster naive factorial algorithm */
     class FactNaive : public IFactorial {
     public:
         static ll Count(ll n);
     };
 
-    /* SimpleFactNaive is class for algorithm which use analog factorisation algorithm */
+    /* SimpleFactNaive is class for algorithm which use simple fact naive algorithm */
     class SimpleFactNaive : public IFactorial {
     public:
         static ll Count(ll n);
