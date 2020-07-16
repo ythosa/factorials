@@ -66,6 +66,12 @@ namespace falgo {
     public:
         static ll Count(ll n);
     };
+
+    /* SimpleFactNaive is class for algorithm which use analog factorisation algorithm */
+    class SimpleFactNaive : public IFactorial {
+    public:
+        static ll Count(ll n);
+    };
 }
 
 #endif //FACTORIALLIB_FALGO_H

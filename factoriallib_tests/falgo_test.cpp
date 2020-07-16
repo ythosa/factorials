@@ -59,3 +59,9 @@ TEST(FactorialTest, FactNaiveValueChekcing) {
         EXPECT_EQ(factorials[i], falgo::FactNaive::Count(i));
     }
 }
+
+TEST(FactorialTest, SimpleFactNaiveValueChekcing) {
+    for (long long i = 0; i < sizeof(factorials)/sizeof(*factorials); i++) {
+        EXPECT_EQ(factorials[i], falgo::SimpleFactNaive::Count(i));
+    }
+}

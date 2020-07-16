@@ -311,4 +311,17 @@ namespace falgo {
         ll mult = i == 4 ? 24 : i == 3 ? 6 : i == 2 ? 2 : 1;
         return (r1 * r2) * (r3 * r4) * mult;
     }
+
+
+    /* --- Simple Fact Naive --- */
+
+    /* Count() function returns factorial of n. */
+    ll SimpleFactNaive::Count(long long int n) {
+        ll r = 1;
+        for (int i = 2; i <= n; ++i) {
+            r *= i;
+        }
+
+        return r;
+    }
 }
