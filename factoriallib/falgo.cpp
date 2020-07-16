@@ -262,4 +262,32 @@ namespace falgo {
 
         return r;
     }
+
+    /* --- Fast Fact Factorial --- */
+
+    /* Count() function returns factorial of n. */
+    ll FactFast::Count(ll n) {
+        ll p = 0, c = 0;
+        while ((n >> p) > 1) {
+            p++;
+            c += n >> p;
+        }
+
+        ll r = 1, k = 1;
+        for (;p >= 0; p--) {
+            ll n1 = n >> p;
+            ll x = 1;
+            ll a = 1;
+            for (; k <= n1; k += 2) {
+                if (a * k < std::numeric_limits<ll>::max()) {
+                    a *= k;
+                } else {
+                    x *= a;
+                    a = k;
+                }
+            }
+            r *= fmath::pow(x * a, p + 1);
+        }
+        return r << c;
+    }
 }

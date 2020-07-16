@@ -54,6 +54,12 @@ namespace falgo {
     public:
         static ll Count(ll n);
     };
+
+    /* FactFast is class for algorithm which use analog factorisation algorithm */
+    class FactFast : public IFactorial {
+    public:
+        static ll Count(ll n);
+    };
 }
 
 #endif //FACTORIALLIB_FALGO_H
