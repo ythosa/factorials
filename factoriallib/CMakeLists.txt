@@ -1,9 +1,13 @@
-cmake_minimum_required(VERSION 3.16)
 project(factoriallib)
 
-set(CMAKE_CXX_STANDARD 17)
+set(HEADER_FILES
+        falgo.h
+        fmath.h
+        )
 
-set(SOURCES fmath.cpp falgo.cpp)
-set(HEADERS fmath.h falgo.h)
+set(SOURCE_FILES
+        falgo.cpp
+        fmath.cpp
+        )
 
-add_library(factoriallib STATIC ${SOURCES} ${HEADERS})
+add_library(factoriallib_lib STATIC ${SOURCE_FILES} ${HEADER_FILES})

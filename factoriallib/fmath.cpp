@@ -1,7 +1,3 @@
-//
-// Created by ythosa on 7/15/20.
-//
-
 #include <vector>
 #include <exception>
 #include <cstring>
