@@ -24,3 +24,12 @@ TEST(FactorialTest, SimpleWhileValuesChecking) {
         EXPECT_EQ(factorials[i], falgo::SimpleWhile::Count(i));
     }
 }
+
+TEST(FactorialTest, TakingFromArrayValuesChecking) {
+    EXPECT_ANY_THROW(falgo::TakingFromArray::Count(100));
+    EXPECT_ANY_THROW(falgo::TakingFromArray::Count(-1));
+
+    for (long long i = 0; i < sizeof(factorials)/sizeof(*factorials); i++) {
+        EXPECT_EQ(factorials[i], falgo::TakingFromArray::Count(i));
+    }
+}

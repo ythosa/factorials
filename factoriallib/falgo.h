@@ -34,6 +34,12 @@ namespace falgo {
     public:
         static ll Count(ll n);
     };
+
+    /* TakingFromArray is class for algorithm which just takes value from array */
+    class TakingFromArray : public IFactorial {
+    public:
+        static ll Count(ll n);
+    };
 }
 
 #endif //FACTORIALLIB_FALGO_H
