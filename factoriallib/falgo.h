@@ -48,6 +48,12 @@ namespace falgo {
     private:
         static ll ProdTree(ll l, ll r);
     };
+
+    /* FactFactor is class for algorithm which use factorisation */
+    class FactFactor : public IFactorial {
+    public:
+        static ll Count(ll n);
+    };
 }
 
 #endif //FACTORIALLIB_FALGO_H

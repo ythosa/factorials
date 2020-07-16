@@ -1,9 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cstring>
 #include <string>
-#include <array>
-#include <charconv>
 
 #include "fmath.h"
 #include "falgo.h"
@@ -214,5 +211,55 @@ namespace falgo {
 
         ll m = (l + r) / 2;
         return ProdTree(l, m) * ProdTree(m + 1, r);
+    }
+
+
+    /* --- Fact Factorial --- */
+
+    /* Count() function returns factorial of n. */
+    ll FactFactor::Count(ll n) {
+        if (n < 0)
+            throw fmath::NegativeArgumentPassed("n");
+        if (n == 0)
+            return 1;
+        if (n == 1 || n == 2)
+            return n;
+
+        bool u[n+1]; // markers for the Eratosthenes sieve
+        for (ll i = 0; i <= n + 1; i++) {
+            u[i] = false;
+        }
+
+        std::vector<std::pair<ll, ll>> p; // multipliers and their exponents
+
+        for (ll i = 2; i <= n; ++i) {
+            if (!u[i]) { // if i is prime number
+                // consider the exponent in the decomposition
+                ll k = n / i;
+                ll c = 0;
+                while (k > 0) {
+                    c += k;
+                    k /= i;
+                }
+
+                //remember the multiplier and its exponent
+                p.emplace_back(i, c);
+
+                // sieve composite numbers using the sieve
+                ll j = 2;
+                while (i * j <= n) {
+                    u[i * j] = true;
+                    ++j;
+                }
+            }
+        }
+
+        // counting factorial
+        ll r = 1;
+        for (ll i = p.size() - 1; i >= 0; i--) {
+            r *= fmath::pow(p[i].first, p[i].second);
+        }
+
+        return r;
     }
 }

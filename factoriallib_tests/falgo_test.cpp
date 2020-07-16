@@ -41,3 +41,9 @@ TEST(FactorialTest, TreeValuesChecking) {
         EXPECT_EQ(factorials[i], falgo::Tree::Count(i));
     }
 }
+
+TEST(FactorialTest, FactFactorValuesChecking) {
+    for (long long i = 0; i < sizeof(factorials)/sizeof(*factorials); i++) {
+        EXPECT_EQ(factorials[i], falgo::FactFactor::Count(i));
+    }
+}
