@@ -34,6 +34,15 @@ TEST(FactorialTest, TakingFromArrayValuesChecking) {
     }
 }
 
+TEST(FactorialTest, InitAndTakeFromArrayValuesChecking) {
+    EXPECT_ANY_THROW(falgo::InitAndTakeFromArray::Count(100));
+    EXPECT_ANY_THROW(falgo::InitAndTakeFromArray::Count(-1));
+
+    for (long long i = 0; i < sizeof(factorials)/sizeof(*factorials); i++) {
+        EXPECT_EQ(factorials[i], falgo::InitAndTakeFromArray::Count(i));
+    }
+}
+
 TEST(FactorialTest, TreeValuesChecking) {
     EXPECT_ANY_THROW(falgo::Tree::Count(-1));
 

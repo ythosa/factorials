@@ -135,27 +135,6 @@ namespace falgo {
 
     /* --- Taking From the Array --- */
 
-    /* RangeError is custom error type. Throwing when the passed
-     * argument does not match the allowed interval. */
-    struct RangeError : public std::exception
-    {
-        int left{};
-        int right{};
-
-        explicit RangeError(int l, int r) {
-            this->left = l;
-            this->right = l;
-        }
-
-        [[nodiscard]] const char * what () const noexcept override
-        {
-            std::string err = "The argument passed into function must be >= `" + std::to_string(this->left) +
-                    "` and < `" + std::to_string(this->right) + "`!";
-
-            return err.c_str();
-        }
-    };
-
     /* _factorials is array of correct factorial values.
      * Indexes in this array match factorial function of each index. */
     ll _factorials[] = {
@@ -165,7 +144,7 @@ namespace falgo {
     };
 
     /* Count() function returns factorial of n. */
-    ll TakingFromArray::Count(long long int n) {
+    ll TakingFromArray::Count(ll n) {
         if (n >= 0 && n < sizeof(_factorials)/sizeof(*_factorials))
             return _factorials[n];
         else
@@ -173,10 +152,27 @@ namespace falgo {
     }
 
 
+    /* --- Init Array and Take from it --- */
+
+    /* Count() function returns factorial of n. */
+    ll InitAndTakeFromArray::Count(ll n) {
+        ll factorials[] = {
+                1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800, 39916800,
+                479001600, 6227020800, 87178291200, 1307674368000, 20922789888000,
+                355687428096000, 6402373705728000, 121645100408832000, 2432902008176640000
+        };
+
+        if (n >= 0 && n < sizeof(factorials)/sizeof(*factorials))
+            return _factorials[n];
+        else
+            throw RangeError(0, sizeof(factorials)/sizeof(*factorials));
+    }
+
+
     /* --- Prod Tree --- */
 
     /* Count() function returns factorial of n. */
-    ll Tree::Count(long long int n) {
+    ll Tree::Count(ll n) {
         if (n < 0)
             throw fmath::NegativeArgumentPassed("n");
         if (n == 0)

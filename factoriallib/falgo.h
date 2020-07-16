@@ -47,8 +47,35 @@ namespace falgo {
         static ll Count(ll n);
     };
 
+    /* RangeError is custom error type. Throwing when the passed
+     * argument does not match the allowed interval. */
+    struct RangeError : public std::exception
+    {
+        int left{};
+        int right{};
+
+        explicit RangeError(int l, int r) {
+            this->left = l;
+            this->right = l;
+        }
+
+        [[nodiscard]] const char * what () const noexcept override
+        {
+            std::string err = "The argument passed into function must be >= `" + std::to_string(this->left) +
+                              "` and < `" + std::to_string(this->right) + "`!";
+
+            return err.c_str();
+        }
+    };
+
     /* TakingFromArray is class for algorithm which just takes value from array */
     class TakingFromArray : public IFactorial {
+    public:
+        static ll Count(ll n);
+    };
+
+    /* InitAndTakeFromArray is class for algorithm which initialise array and return value from it */
+    class InitAndTakeFromArray : public IFactorial {
     public:
         static ll Count(ll n);
     };
