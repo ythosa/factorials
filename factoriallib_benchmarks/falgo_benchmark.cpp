@@ -57,6 +57,14 @@ static void BM_FactFast(benchmark::State& state) {
     }
 }
 
+static void BM_FactNaive(benchmark::State& state) {
+    for (auto _ : state) {
+        for (long long i = 0; i < 21; i++) {
+            falgo::FactNaive::Count(i);
+        }
+    }
+}
+
 // Register the function as a benchmark
 BENCHMARK(BM_PrimeSwing);
 BENCHMARK(BM_SimpleRecursion);
@@ -65,6 +73,7 @@ BENCHMARK(BM_TakingFromArray);
 BENCHMARK(BM_Tree);
 BENCHMARK(BM_FactFactor);
 BENCHMARK(BM_FactFast);
+BENCHMARK(BM_FactNaive);
 
 // Run the benchmark
 BENCHMARK_MAIN();

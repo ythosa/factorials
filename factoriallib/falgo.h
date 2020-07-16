@@ -60,6 +60,12 @@ namespace falgo {
     public:
         static ll Count(ll n);
     };
+
+    /* FactNaive is class for algorithm which use analog factorisation algorithm */
+    class FactNaive : public IFactorial {
+    public:
+        static ll Count(ll n);
+    };
 }
 
 #endif //FACTORIALLIB_FALGO_H
