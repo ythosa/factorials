@@ -41,12 +41,21 @@ static void BM_Tree(benchmark::State& state) {
     }
 }
 
+static void BM_FactFactor(benchmark::State& state) {
+    for (auto _ : state) {
+        for (long long i = 0; i < 21; i++) {
+            falgo::FactFactor::Count(i);
+        }
+    }
+}
+
 // Register the function as a benchmark
 BENCHMARK(BM_PrimeSwing);
 BENCHMARK(BM_SimpleRecursion);
 BENCHMARK(BM_SimpleWhile);
 BENCHMARK(BM_TakingFromArray);
 BENCHMARK(BM_Tree);
+BENCHMARK(BM_FactFactor);
 
 // Run the benchmark
 BENCHMARK_MAIN();

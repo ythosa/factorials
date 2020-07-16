@@ -4,10 +4,10 @@
 #include <vector>
 
 TEST(FactorialMathTest, IsqrtTest) {
-    EXPECT_EQ(fmath::isqrt(10), 3);
-    EXPECT_EQ(fmath::isqrt(9), 3);
-    EXPECT_EQ(fmath::isqrt(25), 5);
-    EXPECT_EQ(fmath::isqrt(12), 3);
+    EXPECT_EQ(fmath::isqrt(10),   3);
+    EXPECT_EQ(fmath::isqrt(9),    3);
+    EXPECT_EQ(fmath::isqrt(25),   5);
+    EXPECT_EQ(fmath::isqrt(12),   3);
     EXPECT_EQ(fmath::isqrt(300), 17);
     EXPECT_EQ(fmath::isqrt(325), 18);
 }
