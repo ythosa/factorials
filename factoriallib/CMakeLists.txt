@@ -3,5 +3,7 @@ project(factoriallib)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(SOURCES main.cpp include/fmath.cpp include/falgo.cpp)
-add_library(factorial ${SOURCES})
+set(SOURCES fmath.cpp falgo.cpp)
+set(HEADERS fmath.h falgo.h)
+
+add_library(factoriallib STATIC ${SOURCES} ${HEADERS})
