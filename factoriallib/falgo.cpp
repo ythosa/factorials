@@ -281,7 +281,7 @@ namespace falgo {
     /* --- Fact Naive --- */
 
     /* Count() function returns factorial of n. */
-    ll FactNaive::Count(long long int n) {
+    ll FactNaive::Count(ll n) {
         if (n <= 1) {
             return 1;
         }
@@ -303,7 +303,7 @@ namespace falgo {
     /* --- Simple Fact Naive --- */
 
     /* Count() function returns factorial of n. */
-    ll SimpleFactNaive::Count(long long int n) {
+    ll SimpleFactNaive::Count(ll n) {
         ll r = 1;
         for (int i = 2; i <= n; ++i) {
             r *= i;
