@@ -115,4 +115,10 @@ namespace falgo {
     ll PrimeSwing::GetSimpleValue(ll i) {
         return (ll)1 * ((i == 0) || (i == 1) || (i == 2)) + (ll)3 * (i == 3);
     }
+
+    /* Count() function returns factorial of n. */
+    ll SimpleRecursion::Count(ll n) {
+        if (n == 0) return 1;
+        return n * SimpleRecursion::Count(n - 1);
+    }
 }

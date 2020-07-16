@@ -1,7 +1,3 @@
-//
-// Created by ythosa on 7/15/20.
-//
-
 #ifndef FACTORIALLIB_FMATH_H
 #define FACTORIALLIB_FMATH_H
 
