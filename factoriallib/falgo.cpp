@@ -151,9 +151,8 @@ namespace falgo {
 
     /* --- Taking From the Array --- */
 
-    /* RangeError is custom error type.
-     * Throwing when the passed argument does not
-     * match the allowed interval. */
+    /* RangeError is custom error type. Throwing when the passed
+     * argument does not match the allowed interval. */
     struct RangeError : public std::exception
     {
         int left{};
@@ -173,12 +172,15 @@ namespace falgo {
         }
     };
 
+    /* _factorials is array of correct factorial values.
+     * Indexes in this array match factorial function of each index. */
     ll _factorials[] = {
             1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800, 39916800,
             479001600, 6227020800, 87178291200, 1307674368000, 20922789888000,
             355687428096000, 6402373705728000, 121645100408832000, 2432902008176640000
     };
 
+    /* Count() function returns factorial of n. */
     ll TakingFromArray::Count(long long int n) {
         if (n >= 0 && n < sizeof(_factorials)/sizeof(*_factorials))
             return _factorials[n];
