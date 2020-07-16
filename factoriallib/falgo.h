@@ -40,6 +40,14 @@ namespace falgo {
     public:
         static ll Count(ll n);
     };
+
+    /* Tree is class for algorithm for computing the tree */
+    class Tree : public IFactorial {
+    public:
+        static ll Count(ll n);
+    private:
+        static ll ProdTree(ll l, ll r);
+    };
 }
 
 #endif //FACTORIALLIB_FALGO_H

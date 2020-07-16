@@ -6,26 +6,6 @@
 #define ll long long
 
 namespace fmath {
-    /* NegativeArgumentPassed is custom error type.
-     * Throwing when passed argument into function
-     * must be non negative. */
-    struct NegativeArgumentPassed : public std::exception
-    {
-        const char* v{};
-
-        explicit NegativeArgumentPassed(const char* v) {
-            this->v = v;
-        }
-
-        [[nodiscard]] const char * what () const noexcept override
-        {
-            return std::strcat(
-                    std::strcat((char *)"The argument passed into function <", this->v),
-                    "> must be non negative"
-                    );
-        }
-    };
-
     /* prime_range() function returns range of prime numbers.
      * The function returns an array with the first
      * element >= f and the last element <= l. */

@@ -33,3 +33,11 @@ TEST(FactorialTest, TakingFromArrayValuesChecking) {
         EXPECT_EQ(factorials[i], falgo::TakingFromArray::Count(i));
     }
 }
+
+TEST(FactorialTest, TreeValuesChecking) {
+    EXPECT_ANY_THROW(falgo::Tree::Count(-1));
+
+    for (long long i = 0; i < sizeof(factorials)/sizeof(*factorials); i++) {
+        EXPECT_EQ(factorials[i], falgo::Tree::Count(i));
+    }
+}

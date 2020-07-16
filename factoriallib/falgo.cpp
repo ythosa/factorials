@@ -187,4 +187,32 @@ namespace falgo {
         else
             throw RangeError(0, sizeof(_factorials)/sizeof(*_factorials));
     }
+
+
+    /* --- Prod Tree --- */
+
+    /* Count() function returns factorial of n. */
+    ll Tree::Count(long long int n) {
+        if (n < 0)
+            throw fmath::NegativeArgumentPassed("n");
+        if (n == 0)
+            return 1;
+        if (n == 1 || n == 2)
+            return n;
+
+        return Tree::ProdTree(2, n);
+    }
+
+    /* ProdTree() function counts tree. */
+    ll Tree::ProdTree(ll l, ll r) {
+        if (l > r)
+            return 1;
+        if (l == r)
+            return l;
+        if ((r - l) == 1)
+            return l * r;
+
+        ll m = (l + r) / 2;
+        return ProdTree(l, m) * ProdTree(m + 1, r);
+    }
 }

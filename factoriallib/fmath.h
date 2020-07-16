@@ -3,6 +3,7 @@
 
 #include <exception>
 #include <vector>
+#include <cstring>
 
 #define ll long long
 
@@ -18,6 +19,22 @@ namespace fmath {
     ll bit_counter(ll n);
 
     ll pow(ll base, ll exp);
+
+    /* NegativeArgumentPassed is custom error type.
+     * Throwing when passed argument into function
+     * must be non negative. */
+    struct NegativeArgumentPassed : public std::exception {
+        const char* v{};
+        explicit NegativeArgumentPassed(const char* v) {
+            this -> v = v;
+        };
+        [[nodiscard]] const char * what () const noexcept override {
+            return std::strcat(
+                    std::strcat((char *)"The argument passed into function <", this->v),
+                    "> must be non negative"
+                    );
+        }
+    };
 }
 
 #endif //FACTORIALLIB_FMATH_H

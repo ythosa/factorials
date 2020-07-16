@@ -33,11 +33,20 @@ static void BM_TakingFromArray(benchmark::State& state) {
     }
 }
 
+static void BM_Tree(benchmark::State& state) {
+    for (auto _ : state) {
+        for (long long i = 0; i < 21; i++) {
+            falgo::Tree::Count(i);
+        }
+    }
+}
+
 // Register the function as a benchmark
 BENCHMARK(BM_PrimeSwing);
 BENCHMARK(BM_SimpleRecursion);
 BENCHMARK(BM_SimpleWhile);
 BENCHMARK(BM_TakingFromArray);
+BENCHMARK(BM_Tree);
 
 // Run the benchmark
 BENCHMARK_MAIN();
