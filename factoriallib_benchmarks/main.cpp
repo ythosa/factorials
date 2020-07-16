@@ -2,9 +2,7 @@
 #include "falgo.h"
 
 static void BM_PrimeSwing(benchmark::State& state) {
-    // Perform setup here
     for (auto _ : state) {
-        // This code gets timed
         for (long long i = 0; i < 21; i++) {
             falgo::PrimeSwing::Count(i);
         }
@@ -12,9 +10,7 @@ static void BM_PrimeSwing(benchmark::State& state) {
 }
 
 static void BM_SimpleRecursion(benchmark::State& state) {
-    // Perform setup here
     for (auto _ : state) {
-        // This code gets timed
         for (long long i = 0; i < 21; i++) {
             falgo::SimpleRecursion::Count(i);
         }
