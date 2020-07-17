@@ -17,7 +17,16 @@ The algorithms are compared by using the [google/benchmark](https://github.com/g
 There are also tests for each algorithm that use the [google/googletest](https://github.com/google/googletest) library. 
 * Tests you can find [here](https://github.com/Ythosa/factorials/tree/master/factoriallib_tests);
 * Benchmarks you can find [here](https://github.com/Ythosa/factorials/tree/master/factoriallib_benchmarks);
-* Factorials library itself: https://github.com/Ythosa/factorials/tree/master/factoriallib.
+* Factorials library itself [here](https://github.com/Ythosa/factorials/tree/master/factoriallib).
+
+## Results
+<img src="https://github.com/Ythosa/factorials/blob/master/assets/results.jpg" alt="Results" />
+
+As a result, more effective algorithm was
+[FactNaive](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L280).
+However, the most efficient algorithm is one that simply returns values from an array: 
+[TakingFromArray](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L147) 
+(even if it initializes it: [InitAndTakeFromArray](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L158)).
 
 ## Links
 *	What is factorial: https://en.wikipedia.org/wiki/Factorial
