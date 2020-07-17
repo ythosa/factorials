@@ -27,6 +27,14 @@ As a result, more effective algorithm was
 However, the most efficient algorithm is one that simply returns values from an array: 
 [TakingFromArray](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L147) 
 (even if it initializes it: [InitAndTakeFromArray](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L158)).
+Other algorithms:
+* [SimpleFactNaive](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L302),
+* [SimpleWhile](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L124),
+* [SimpleRecursion](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L115),
+* [Tree](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L175),
+* [FactFast](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L252),
+* [FactFactor](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L203),
+* [Prime Swing](https://github.com/Ythosa/factorials/blob/54a93c3b326b5143bd223258fb385f78ad79ba75/factoriallib/falgo.cpp#L91).
 
 ## Links
 *	What is factorial: https://en.wikipedia.org/wiki/Factorial
